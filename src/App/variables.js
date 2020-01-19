@@ -19,6 +19,7 @@ const ilex = {
         color_rojo:`rgba(221,84,123,1)`,
         color_gris:`rgba(128,128,128,1)`,
         color_gris_input:`#ccc`,
+        color_gris_area:`rgb(200,200,200)`,
         color_amarilloClaro:`rgba(255,240,153,1)`,
         color_amarilloOscuro:`rgba(229,169,80,1)` ,
         degradado:(rot, color1, color2, color3) => {

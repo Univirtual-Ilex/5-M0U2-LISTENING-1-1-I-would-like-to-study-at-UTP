@@ -13,10 +13,10 @@ const Home_base = function ({...props}) { // se le pasan las props para recibir 
 
                     <div className='bloque-izquierdo'>
                         <div className='bloque-izquierdo-container'>
-                            <h1>Parts of an Email </h1>
+                            <h1>I  would like to study at UTP </h1>
                             <p>
-                            This activity count with 3 parts. Read, organize and complete the exercises 
-                            </p>
+                            This activity count with 2 parts, you must pass each exercise to finish. 
+                            <span className='negrilla'> ¡Time to practice your listening skill!</span></p>
                             <ButtonX>Start</ButtonX>
                         </div>
                     </div>

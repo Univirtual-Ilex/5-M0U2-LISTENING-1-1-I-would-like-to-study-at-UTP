@@ -25,5 +25,18 @@ export const draggableBlock = css`
 
 `
 
+export const draggableItemb = css`
+    display: block;
+    box-shadow:none;
+    border:none;
+    background-color: ${Ilex.violeta2};
+    color: #fff;
+    text-transform:uppercase;
+    font-size:1.1em;
+    font-weight:bold;
+    padding-right: 1em;
+    width: ${props => props.w ? props.w  + 'em' : 'auto' } ;
+ 
+`
 
 export default styles

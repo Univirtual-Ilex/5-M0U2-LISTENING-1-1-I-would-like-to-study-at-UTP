@@ -5,11 +5,11 @@ import styled from 'styled-components'
 import styles from './BocinaButton_styles'
 
 // Componente base
-const BocinaButton_base = ({className, audio ,...props}) => {
-    console.log(className)
+const BocinaButton_base = ({type, className, audio ,...props}) => {
+
     return (
 
-            <button className={'btn-clean ' + className}> 
+            <button className={ (type ? 'type2 ' : '') + 'btn-clean ' + className}> 
                 <i className='ilx-bocina'></i>
             </button>
 

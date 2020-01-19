@@ -5,18 +5,20 @@ import ProgressBar from '../ProgressBar'
 import MainTitle from '../MainTitle'
 import ButtonUi from '../ButtonControlUI'
 import {ICol, IRow} from '../Grid'
-import Sentence from '../Sentence'
+import ButtonCheck from '../ButtonCheck'
 
 // Styles
 import styled from 'styled-components'
 import styles, { ProgressbarContainer, UiButtonsContainer } from './Actividad_styles'
 import Ilex from '../../App/variables'
+import { DraggableItemb } from '../Draggable'
+import ImageArea from '../ImageArea'
 
 
 
 const Actividad_base =  ({...props}) => {
     return (
-        <Container bgImage='./src/bg_actividad1.png' w={69} h={38.8} {...props}>
+        <Container bgImage='./src/bg_actividad1.png' {...props}>
             
             <UiButtonsContainer>
                 <ButtonUi icon='ilx-ayuda' tooltip='slide the sentences to organize them, then press check to verify if it is right or wrong, press hint if you need help   ' />
@@ -32,19 +34,48 @@ const Actividad_base =  ({...props}) => {
             ORGANIZE THE SENTENCES IN THE CORRECT ORDER 
             </MainTitle>
 
-            <IRow w={90} align='center' pt={2}>
-                <ICol w={100}> 
-                    <Sentence basename='Account/From' words={['your', 'email', 'goes', 'in', 'this', 'part']} />
-                    <Sentence basename='To' words={['you', 'write', 'the', 'recipient`s', 'email', 'in', 'this', 'part']} />
-                    <Sentence basename='Subject field' words={['you', 'write', 'the', 'purpose', 'of', 'your', 'message', 'in', 'this','part']} />
-                    <Sentence basename='Greeting' words={['you', 'say', 'hello', 'or', 'greet', 'the', 'person', 'you', 'write','the','message', 'to']}/>
-                    <Sentence basename='Introduction' words={['you', 'introduce', 'the', 'message', 'you', 'want', 'to', 'send', 'on', 'this', 'section']}/>
-                    <Sentence basename='Body' words={['the', 'content', 'of', 'your', 'message', 'goes', 'in', 'this', 'part']}/>
-                    <Sentence basename='Conclusion' words={['you', 'conclude', 'the', 'message', 'in', 'this', 'section']}/>
-                    <Sentence basename='Complimentary close' words={['it', 'is', 'a', 'section', 'of', 'the', 'message', 'that', 'you', 'include', 'before', 'your', 'signature']}/>
-                    <Sentence basename='Signature' words={['in', 'this', 'part', 'you', 'write', 'your', 'name', 'to', 'finish', 'the', 'message']}/>
-                    <Sentence basename='Attachments' words={['here', 'you', 'include', 'a', 'document', 'or', 'photo', 'to', 'the', 'message', 'email']}/>
+            <IRow w={85} align='center' py={1.5}>
+                <ICol className='buttons' w={20}>
+                    <DraggableItemb w={10} audio='./media/audio.mp3' name='Chemistry' />
+                    <DraggableItemb w={10} audio='./media/audio.mp3' name='Biology' />
+                    <DraggableItemb w={10} audio='./media/audio.mp3' name='Physics' />
+                    <DraggableItemb w={10} audio='./media/audio.mp3' name='Math' />
+                    <DraggableItemb w={10} audio='./media/audio.mp3' name='Languages' />
+                    <DraggableItemb w={10} audio='./media/audio.mp3' name='Reading' />
                 </ICol>
+                <ICol className='areas' w={70} pl={2}>
+
+                    <IRow justify='center' gutters={0.25}>
+                        <ICol w={30}>
+                            <ImageArea img='./src/cell1.png' dropzone='_test' />
+                        </ICol>
+
+                        <ICol w={30}>
+                            <ImageArea img='./src/cell2.png' dropzone='_test' />
+                        </ICol>
+
+                        <ICol w={30}>
+                            <ImageArea img='./src/cell3.png' dropzone='_test' />
+                        </ICol>
+
+                        <ICol w={30}>
+                            <ImageArea img='./src/cell4.png' dropzone='_test' />
+                        </ICol>
+
+                        <ICol w={30}>
+                            <ImageArea img='./src/cell5.png' dropzone='_test' />
+                        </ICol>
+
+                        <ICol w={30}>
+                            <ImageArea img='./src/cell6.png' dropzone='_test' />
+                        </ICol>
+
+                    </IRow>
+
+                </ICol>
+            </IRow>
+            <IRow>
+                <ICol pt={1.5}><ButtonCheck /></ICol>
             </IRow>
 
             
