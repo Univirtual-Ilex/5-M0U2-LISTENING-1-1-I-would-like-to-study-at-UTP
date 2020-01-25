@@ -36,7 +36,7 @@ const Actividad2_base = ({...props}) => {
             </IRow>
             
             <IRow align='center' justify='center' w={80} pt={1}>
-                <ButtonAudio></ButtonAudio>
+                <ButtonAudio src='ojo/ruta/audio.mp3'></ButtonAudio>
             </IRow>
 
             <IRow w={85} align='center' py='2'>
