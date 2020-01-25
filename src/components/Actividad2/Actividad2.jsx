@@ -5,6 +5,8 @@ import styles from './Actividad2_styles'
 import Ilex from '../../App/variables'
 // styles from styled
 import { ProgressbarContainer, UiButtonsContainer } from '../Actividad1/Actividad_styles'
+// Data
+import data from './Actividad2_data'
 // Components
 import Container from '../Container'
 import ProgressBar from '../ProgressBar'
@@ -12,7 +14,7 @@ import MainTitle from '../MainTitle'
 import { IRow, ICol } from '../Grid'
 import ButtonUi from '../ButtonControlUI'
 import ButtonAudio from '../ButtonAudio/ButtonAudio'
-import Sentence from '../SentenceTF'
+import SentenceTF from '../SentenceTF'
 // Componente base
 const Actividad2_base = ({...props}) => {
     return (
@@ -38,7 +40,19 @@ const Actividad2_base = ({...props}) => {
             </IRow>
 
             <IRow w={85} align='center' py='2'>
-                <Sentence></Sentence>
+                <ICol className='bloque-columnas'>
+                    <ol>
+                        { data.map(item => {
+                            return(
+                                <li key={item.id}>
+                                    <SentenceTF> {item.pregunta} </SentenceTF>
+                                </li>
+                            )
+                        }) }
+                    </ol>
+                </ICol>
+
+                
             </IRow>
         </Container>
 

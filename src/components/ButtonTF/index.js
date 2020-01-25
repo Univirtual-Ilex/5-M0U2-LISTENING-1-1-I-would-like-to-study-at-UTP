@@ -1,1 +1,1 @@
-export { default } from './ButtonTF'
+export { default, ButtonTF2 } from './ButtonTF'

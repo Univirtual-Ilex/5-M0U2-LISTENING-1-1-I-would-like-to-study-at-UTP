@@ -2,7 +2,7 @@
 //Import
 import React from 'react'
 import styled from 'styled-components'
-import styles from './ButtonTF_styles'
+import styles, {buttonLined} from './ButtonTF_styles'
 
 // Componente base
 const ButtonTF_base = ({ t, f, ...props}) => {
@@ -16,4 +16,5 @@ const ButtonTF_base = ({ t, f, ...props}) => {
     )
 }
 const ButtonTF = styled(ButtonTF_base)`${ styles }`
+export const ButtonTF2 = styled(ButtonTF)`${ buttonLined }`
 export default ButtonTF

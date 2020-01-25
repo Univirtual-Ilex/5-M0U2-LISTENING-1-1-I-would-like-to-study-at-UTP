@@ -32,5 +32,15 @@ const styles = css`
 
 `
 
+// Button TF lined es una versión reducida y inlineblock
+export const buttonLined = css`
+    display: inline-block;
+    button {
+        font-size: 0.88em;
+        font-weight: medium;
+        text-transform: uppercase;
+    }
+`
+
 export default styles
     

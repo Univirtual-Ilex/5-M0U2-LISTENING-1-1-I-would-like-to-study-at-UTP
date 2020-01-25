@@ -8,7 +8,9 @@ import styles from './ButtonAudio_styles'
 const ButtonAudio_base = ({...props}) => {
     return (
         <div {...props}>
-            <button className='btn-clean'> Play Audio </button>
+            <button className='btn-clean'> 
+                <img className="img-play" src="./src/play_btn.svg" alt="Play Audio" />
+            </button>
         </div>
     )
 }
