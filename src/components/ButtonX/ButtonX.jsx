@@ -1,16 +1,9 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import Ilex from '../../App/variables'
+import {Link} from 'react-router-dom'
 
-const ButtonX_base = (props) => {
-    return (
-        <button {...props}>
-            {props.children}
-        </button>
-    )
-}
-
-const ButtonX = styled(ButtonX_base)`
+const styles = css`
     border:none;
     font-family:${Ilex.font};
     font-weight:bold;
@@ -29,6 +22,29 @@ const ButtonX = styled(ButtonX_base)`
     &:hover{
         background: #000
     }
+
+`
+
+const ButtonX_base = ({link ,...props}) => {
+    return (
+
+        <button {...props}>
+            
+                {props.children}
+
+        </button>
+
+    )
+}
+
+export const ButtonLink = styled(Link)`
+    ${styles}
+    display:inline-block;
+    text-decoration:none;
+`
+
+const ButtonX = styled(ButtonX_base)`
+    ${styles}
 `
 
 export default ButtonX

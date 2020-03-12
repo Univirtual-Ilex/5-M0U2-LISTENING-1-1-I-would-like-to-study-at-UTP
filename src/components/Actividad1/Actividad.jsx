@@ -16,7 +16,7 @@ import ImageArea from '../ImageArea'
 
 
 
-const Actividad_base =  ({...props}) => {
+const Actividad_base =  ({staticContext,...props}) => {
     const [visible, setVisible] = useState(false)
     const [results, setresults] = useState(false)
     let [values, setValues] = useState([])
@@ -102,7 +102,7 @@ const Actividad_base =  ({...props}) => {
 
                 <ICol pt={1.5}> <ButtonCheck onClick={() => check(values)} /> </ICol>
             </IRow>
-            <Modal visible={visible} ok={results} err={!results}/>
+            <Modal visible={visible} ok={results} err={!results} nxtUrl='/actividad2' repeatUrl='/actividad1' />
 
         </Container>
     )

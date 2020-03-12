@@ -19,14 +19,14 @@ import Modal from '../Generales/Modal'
 import ButtonCheck from '../ButtonCheck'
 import PreguntaResultado from '../PreguntaResultado'
 // Componente base
-const Actividad2_base = ({...props}) => {
+const Actividad2_base = ({staticContext,...props}) => {
     const [values, setValues] = useState([])
     const [results, setResults] = useState(false)
     const [visible, setVisible] = useState(false)
 
     const check = (feedback) => {
         let result = feedback.indexOf(false)
-        if (result === -1 && feedback.length > 1) {
+        if (result === -1 && feedback.length === data.length) {
             setVisible(true)
             setResults(true)
         } else {
@@ -76,13 +76,12 @@ const Actividad2_base = ({...props}) => {
                     </ol>
                 </ICol>
 
-            {values + ''}
             </IRow>
 
             <IRow>
             <ICol pt={3}> <ButtonCheck onClick={() => check(values)} /> </ICol>
             </IRow>
-            <Modal visible={visible} ok={results} err={!results}>
+            <Modal visible={visible} ok={results} err={!results} w={30} nxtUrl='/' repeatUrl='/actividad2' finishUrl={results}>
                 {
 
                 values.map((value, index) => {
