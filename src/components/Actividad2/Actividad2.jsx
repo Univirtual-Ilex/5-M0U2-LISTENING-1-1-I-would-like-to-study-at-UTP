@@ -60,7 +60,7 @@ const Actividad2_base = ({staticContext,...props}) => {
             </IRow>
             
             <IRow align='center' justify='center' w={80} pt={1}>
-                <ButtonAudio src='ojo/ruta/audio.mp3'></ButtonAudio>
+                <ButtonAudio src='media/audio.mp3'></ButtonAudio>
             </IRow>
 
             <IRow w={85} align='center' py='2'>

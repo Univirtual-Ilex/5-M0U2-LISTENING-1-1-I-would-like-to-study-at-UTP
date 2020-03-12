@@ -18,6 +18,10 @@ button{
         width:0.78em;
         height:auto;
     }
+    &.running{
+        background-image: linear-gradient(90deg, ${Ilex.color_amarilloOscuro}, ${Ilex.rosa});
+        box-shadow: 0 0.5em 0 0 ${Ilex.violeta}; 
+    }
 
 }
 `
