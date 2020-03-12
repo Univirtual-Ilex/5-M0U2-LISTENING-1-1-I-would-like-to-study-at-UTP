@@ -95,9 +95,7 @@ const Actividad_base =  ({...props}) => {
                         <ICol w={30}>
                             <ImageArea img='./src/cell6.png' correctName='Biology' id="area6" />
                         </ICol>
-
                     </IRow>
-
                 </ICol>
             </IRow>
             <IRow>

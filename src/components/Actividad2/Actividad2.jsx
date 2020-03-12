@@ -1,5 +1,5 @@
 //Import
-import React from 'react'
+import React,{useState} from 'react'
 import styled from 'styled-components'
 import styles from './Actividad2_styles'
 import Ilex from '../../App/variables'
@@ -15,8 +15,32 @@ import { IRow, ICol } from '../Grid'
 import ButtonUi from '../ButtonControlUI'
 import ButtonAudio from '../ButtonAudio/ButtonAudio'
 import SentenceTF from '../SentenceTF'
+import Modal from '../Generales/Modal'
+import ButtonCheck from '../ButtonCheck'
+import PreguntaResultado from '../PreguntaResultado'
 // Componente base
 const Actividad2_base = ({...props}) => {
+    const [values, setValues] = useState([])
+    const [results, setResults] = useState(false)
+    const [visible, setVisible] = useState(false)
+
+    const check = (feedback) => {
+        let result = feedback.indexOf(false)
+        if (result === -1 && feedback.length > 1) {
+            setVisible(true)
+            setResults(true)
+        } else {
+            setVisible(true)
+            setResults(false)
+        }
+    }
+
+    const registerAnswer = (value) => {
+        let valueArray = [...values]
+        valueArray[value.index] = value.feedback
+        setValues(valueArray)
+        console.log(values)
+    }
     return (
         <Container bgImage='./src/bg_actividad1.png' {...props}>
 
@@ -42,18 +66,35 @@ const Actividad2_base = ({...props}) => {
             <IRow w={85} align='center' py='2'>
                 <ICol className='bloque-columnas'>
                     <ol>
-                        { data.map(item => {
+                        { data.map((item, index) => {
                             return(
                                 <li key={item.id}>
-                                    <SentenceTF> {item.pregunta} </SentenceTF>
+                                    <SentenceTF answer={(answer)=>registerAnswer(answer)} correct={item.respuesta} index={index} > {item.pregunta} </SentenceTF>
                                 </li>
                             )
                         }) }
                     </ol>
                 </ICol>
 
-                
+            {values + ''}
             </IRow>
+
+            <IRow>
+            <ICol pt={3}> <ButtonCheck onClick={() => check(values)} /> </ICol>
+            </IRow>
+            <Modal visible={visible} ok={results} err={!results}>
+                {
+
+                values.map((value, index) => {
+                    return(
+                    <PreguntaResultado key={'id'+index} ok={value} err={!value} > {index+1} </PreguntaResultado>
+                    )
+                })
+                
+                }
+            
+            </Modal>
+
         </Container>
 
     )
