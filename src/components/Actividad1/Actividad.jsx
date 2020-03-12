@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState, useEffect} from 'react'
 //Components
 import Container from '../Container'
 import ProgressBar from '../ProgressBar'
@@ -17,7 +17,29 @@ import ImageArea from '../ImageArea'
 
 
 const Actividad_base =  ({...props}) => {
+    const [visible, setVisible] = useState(false)
+    let [values, setValues] = useState([])
+    let resultCollection = []
 
+    const check = (val) => {
+        if(val.indexOf(false)===-1 && val.length > 1){
+            setVisible(true)
+
+        } else {
+            setVisible(false)
+            console.log('no ha pasado')
+        }
+    }
+    
+
+    console.log(resultCollection)
+
+    const feedback = (result) => {
+        resultCollection[result.index] = result.result
+        console.log(resultCollection)
+    }
+
+ 
     return (
         <Container bgImage='./src/bg_actividad1.png' {...props} >
             
@@ -37,12 +59,12 @@ const Actividad_base =  ({...props}) => {
 
             <IRow w={85} align='center' py={1.5} id="draggingArea">
                 <ICol className='buttons' w={20}>
-                    <DraggableItemb w={10} audio='./media/audio.mp3' name='Chemistry' draggingArea='#draggingArea' target="#area4"  activeareas={['#area1', '#area2', '#area3', '#area4', '#area5', '#area6']} />
-                    <DraggableItemb w={10} audio='./media/audio.mp3' name='Biology'  draggingArea='#draggingArea' target="#area6" activeareas={['#area1', '#area2', '#area3', '#area4', '#area5', '#area6']} />
-                    <DraggableItemb w={10} audio='./media/audio.mp3' name='Physics'  draggingArea='#draggingArea' target="#area3" activeareas={['#area1', '#area2', '#area3', '#area4', '#area5', '#area6']} />
-                    <DraggableItemb w={10} audio='./media/audio.mp3' name='Math'   draggingArea='#draggingArea' target="#area5" activeareas={['#area1', '#area2', '#area3', '#area4', '#area5', '#area6']} />
-                    <DraggableItemb w={10} audio='./media/audio.mp3' name='Languages'  draggingArea='#draggingArea' target="#area1" activeareas={['#area1', '#area2', '#area3', '#area4', '#area5', '#area6']} />
-                    <DraggableItemb w={10} audio='./media/audio.mp3' name='Reading'  draggingArea='#draggingArea' target="#area3" activeareas={['#area1', '#area2', '#area3', '#area4', '#area5', '#area6']} />
+                    <DraggableItemb w={10} audio='./media/audio.mp3' name='Chemistry' draggingArea='#draggingArea' target="#area4"  activeareas={['#area1', '#area2', '#area3', '#area4', '#area5', '#area6']}  send={(result, index) => feedback(result)} index={0}/>
+                    <DraggableItemb w={10} audio='./media/audio.mp3' name='Biology'  draggingArea='#draggingArea' target="#area6" activeareas={['#area1', '#area2', '#area3', '#area4', '#area5', '#area6']}  send={(result) => feedback(result)} index={1}/>
+                    <DraggableItemb w={10} audio='./media/audio.mp3' name='Physics'  draggingArea='#draggingArea' target="#area2" activeareas={['#area1', '#area2', '#area3', '#area4', '#area5', '#area6']}  send={(result) => feedback(result)} index={2}/>
+                    <DraggableItemb w={10} audio='./media/audio.mp3' name='Math'   draggingArea='#draggingArea' target="#area5" activeareas={['#area1', '#area2', '#area3', '#area4', '#area5', '#area6']}  send={(result) => feedback(result)} index={3}/>
+                    <DraggableItemb w={10} audio='./media/audio.mp3' name='Languages'  draggingArea='#draggingArea' target="#area1" activeareas={['#area1', '#area2', '#area3', '#area4', '#area5', '#area6']}  send={(result) => feedback(result)} index={4}/>
+                    <DraggableItemb w={10} audio='./media/audio.mp3' name='Reading'  draggingArea='#draggingArea' target="#area3" activeareas={['#area1', '#area2', '#area3', '#area4', '#area5', '#area6']}  send={(result) => feedback(result)} index={5}/>
                 </ICol>
                 <ICol className='areas' w={70} pl={2}>
 
@@ -76,7 +98,7 @@ const Actividad_base =  ({...props}) => {
                 </ICol>
             </IRow>
             <IRow>
-                <ICol pt={1.5}><ButtonCheck /></ICol>
+                <ICol pt={1.5}> <ButtonCheck onClick={() => check(resultCollection)} /> </ICol>
             </IRow>
 
         </Container>

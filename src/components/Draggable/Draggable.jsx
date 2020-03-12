@@ -1,6 +1,6 @@
 
 //Import
-import React,{useRef, useEffect, useState, forwardRef} from 'react'
+import React,{useRef, useEffect,  forwardRef} from 'react'
 import styled from 'styled-components'
 //Components
 import BocinaButton from '../BocinaButton'
@@ -16,7 +16,7 @@ export const DraggableBlock = styled.div`
 
 
 // Componente base
-const Draggable_base = forwardRef(({ draggingArea, audio, name, target, elementId, info, activeareas, ...props }, ref) => {
+const Draggable_base = forwardRef(({ draggingArea, audio, name, target, send, info, activeareas, index, ...props }, ref) => {
     const itemDraggable = useRef()
     
     
@@ -31,7 +31,7 @@ const Draggable_base = forwardRef(({ draggingArea, audio, name, target, elementI
             zIndex:500,
             // liveSnap: { points:[{x:100, y:100}], radius: 50}, // {x:100, y:100}, {x:50, y:50}, {x:100, y:100} Puntos en la posición 0x y 0y tambien en la 50x y 50y
             inertia:true,
-            liveSnap:{
+            /*liveSnap:{
                 x: function(v, s){ // v por defecto devuelve un valor con la posición en vivo del elemento. Si ese valor se retorna, el elemento se pegará a él
                     //console.log('value is', v, s)
                     if(v > 1000) {
@@ -40,7 +40,7 @@ const Draggable_base = forwardRef(({ draggingArea, audio, name, target, elementI
                         return v
                     }
                 }
-            },
+            },*/
             onDrag: function (e) {
                // console.log(this.x, this.y)
                // console.log('Revisando', e)
@@ -49,21 +49,38 @@ const Draggable_base = forwardRef(({ draggingArea, audio, name, target, elementI
                 // console.log(ref[0].current.dataset.target)
             },
             onDragEnd: function (e) {
-                console.log(target)
+
+
                 let isThere = activeareas.map((area, index) => {
-                        return this.hitTest(area)
+                        return this.hitTest(area, '80%')
                 })
 
-                if (isThere.indexOf(true) !== -1) {
-                    console.log(isThere.indexOf(true)+1) // Ojo pendiente acá que está la clave del tesoro
-                    return
-                } else {
-                    TweenLite.to(this.target, 0.3, {x:0, y:0})
+                const isMatching = () => {
+                    const isCorrect = `#area${isThere.indexOf(true)+1}` === target
+                    send( {result:isCorrect, index: index})
                 }
+
+                if (isThere.indexOf(true) !== -1) {
+                    // Envia la validación de si este elemento está en la celda correcta
+                        isMatching()
+                        //const isCorrect = `#area${isThere.indexOf(true)+1}` === target
+                        //send( {result:isCorrect, index: index})
+                        //send(`#area${isThere.indexOf(true)+1}` === target)
+                        
+                    } else {                       
+                       
+                    gsap.to(this.target, 0.3, {x:0, y:0,onComplete:isMatching})
+        
+
+                }
+
+
+
+                
             }
 
         })
-    } , [draggingArea, target, ref, elementId, activeareas, info])
+    } , [draggingArea, target, ref, send, index, activeareas, info])
     return (
         <div {...props} ref={itemDraggable}>
             <BocinaButton audio={ audio } type />
