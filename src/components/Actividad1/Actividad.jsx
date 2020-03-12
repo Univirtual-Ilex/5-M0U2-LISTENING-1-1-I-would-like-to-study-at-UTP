@@ -48,27 +48,27 @@ const Actividad_base =  ({...props}) => {
 
                     <IRow justify='center' gutters={0.25}>
                         <ICol w={30}>
-                            <ImageArea img='./src/cell1.png' correctName='Languages' droppablezone={true}  id="area1" />
+                            <ImageArea img='./src/cell1.png' correctName='Languages' id="area1"/>
                         </ICol>
 
                         <ICol w={30}>
-                            <ImageArea img='./src/cell2.png' correctName='Physics' droppablezone={true}   id="area2"/>
+                            <ImageArea img='./src/cell2.png' correctName='Physics'  id="area2" />
                         </ICol>
 
                         <ICol w={30}>
-                            <ImageArea img='./src/cell3.png' correctName='Reading' droppablezone={true}  id="area3"/>
+                            <ImageArea img='./src/cell3.png' correctName='Reading' id="area3" />
                         </ICol>
 
                         <ICol w={30}>
-                            <ImageArea img='./src/cell4.png' correctName='Chemistry' droppablezone={true}  id="area4"/>
+                            <ImageArea img='./src/cell4.png' correctName='Chemistry' id="area4" />
                         </ICol>
 
                         <ICol w={30}>
-                            <ImageArea img='./src/cell5.png' correctName='Math' droppablezone={true}   id="area5"/>
+                            <ImageArea img='./src/cell5.png' correctName='Math'  id="area5" />
                         </ICol>
 
                         <ICol w={30}>
-                            <ImageArea img='./src/cell6.png' correctName='Biology' droppablezone={true}  id="area6"/>
+                            <ImageArea img='./src/cell6.png' correctName='Biology' id="area6" />
                         </ICol>
 
                     </IRow>

@@ -49,15 +49,19 @@ const Draggable_base = forwardRef(({ draggingArea, audio, name, target, elementI
                 // console.log(ref[0].current.dataset.target)
             },
             onDragEnd: function (e) {
-                activeareas.forEach((area, index) => {
-                    if (this.hitTest(area)) {
-                        console.log(this.hitTest(area))
-
-                    } else {
-                        TweenLite.to(this.target, 0.2, {x:0, y:0})
-                    }
+                console.log(target)
+                let isThere = activeareas.map((area, index) => {
+                        return this.hitTest(area)
                 })
+
+                if (isThere.indexOf(true) !== -1) {
+                    console.log(isThere.indexOf(true)+1) // Ojo pendiente acá que está la clave del tesoro
+                    return
+                } else {
+                    TweenLite.to(this.target, 0.3, {x:0, y:0})
+                }
             }
+
         })
     } , [draggingArea, target, ref, elementId, activeareas, info])
     return (
