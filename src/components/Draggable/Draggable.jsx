@@ -5,7 +5,7 @@ import styled from 'styled-components'
 //Components
 import BocinaButton from '../BocinaButton'
 import styles, {draggableBlock, draggableItemb} from './Draggable_styles'
-import { gsap, TweenLite, TweenMax } from 'gsap'
+import { gsap } from 'gsap'
 import { Draggable} from 'gsap/Draggable'
 // import BocinaButton from '../BocinaButton'
 

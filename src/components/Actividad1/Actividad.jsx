@@ -1,4 +1,4 @@
-import React,{useState, useEffect} from 'react'
+import React,{useState} from 'react'
 //Components
 import Container from '../Container'
 import ProgressBar from '../ProgressBar'
@@ -6,7 +6,7 @@ import MainTitle from '../MainTitle'
 import ButtonUi from '../ButtonControlUI'
 import {ICol, IRow} from '../Grid'
 import ButtonCheck from '../ButtonCheck'
-
+import Modal from '../Generales/Modal'
 // Styles
 import styled from 'styled-components'
 import styles, { ProgressbarContainer, UiButtonsContainer } from './Actividad_styles'
@@ -18,25 +18,28 @@ import ImageArea from '../ImageArea'
 
 const Actividad_base =  ({...props}) => {
     const [visible, setVisible] = useState(false)
+    const [results, setresults] = useState(false)
     let [values, setValues] = useState([])
-    let resultCollection = []
-
+    
     const check = (val) => {
         if(val.indexOf(false)===-1 && val.length > 1){
             setVisible(true)
-
+            setresults(true)
+            
         } else {
-            setVisible(false)
-            console.log('no ha pasado')
+            setVisible(true)
+            setresults(false)
         }
     }
     
-
-    console.log(resultCollection)
+    
+    
 
     const feedback = (result) => {
+        let resultCollection = [...values]
         resultCollection[result.index] = result.result
-        console.log(resultCollection)
+        setValues(resultCollection)
+        console.log(values)
     }
 
  
@@ -98,8 +101,10 @@ const Actividad_base =  ({...props}) => {
                 </ICol>
             </IRow>
             <IRow>
-                <ICol pt={1.5}> <ButtonCheck onClick={() => check(resultCollection)} /> </ICol>
+
+                <ICol pt={1.5}> <ButtonCheck onClick={() => check(values)} /> </ICol>
             </IRow>
+            <Modal visible={visible} ok={results} err={!results}/>
 
         </Container>
     )
