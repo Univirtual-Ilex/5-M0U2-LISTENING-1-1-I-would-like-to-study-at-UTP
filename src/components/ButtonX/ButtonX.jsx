@@ -18,9 +18,11 @@ const styles = css`
     outline:none;
     cursor: pointer;
     box-shadow:0 0.2em 0 0 rgba(0,0,0,0.1);
+    transition: transform 0.6s cubic-bezier(.87,-0.39,.15,1.91);
     /* Hovers*/
     &:hover{
-        background: #000
+        background: #000;
+        transform: scale(1.2);
     }
 
 `
