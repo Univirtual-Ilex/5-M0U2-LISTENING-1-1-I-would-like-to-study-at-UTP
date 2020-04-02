@@ -46,7 +46,7 @@ const Actividad2_base = ({staticContext,...props}) => {
 
             <UiButtonsContainer>
                 <ButtonUi icon='ilx-ayuda' tooltip='listen carefully to the conversation and then answer if the following sentences are true or false' />
-                <ButtonUi icon='ilx-volver' tooltip='Start Again' />
+                <ButtonUi icon='ilx-volver' tooltip='Start Again' onClick={() => window.location.reload()} />
             </UiButtonsContainer>
 
             <ProgressbarContainer>
@@ -81,7 +81,7 @@ const Actividad2_base = ({staticContext,...props}) => {
             <IRow>
             <ICol pt={3}> <ButtonCheck onClick={() => check(values)} /> </ICol>
             </IRow>
-            <Modal visible={visible} ok={results} err={!results} w={30} nxtUrl='/' repeatUrl='/actividad2' finishUrl={results}>
+            <Modal visible={visible} ok={results} err={!results} w={30} nxtUrl='#/' repeatUrl='#/actividad2' finishUrl={results}>
                 {
 
                 values.map((value, index) => {
