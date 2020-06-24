@@ -23,8 +23,8 @@ const ButtonAudio_base = ({src, ...props}) => {
     }
     return (
         <div {...props}>
-            <button className={`btn-clean ${running ? 'running': '' }` } onClick={handleAudio}> 
-                <img className="img-play" src="./src/play_btn.svg" alt="Play Audio" />
+            <button className={(running ? 'running' : '') + 'btn-clean '} onClick={handleAudio}> 
+                <i className='ilx-bocina'></i>
             </button>
             <audio ref={ilxAudio} onEnded={handleAudio}>
                     <source src={ src }/>

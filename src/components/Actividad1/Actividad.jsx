@@ -62,12 +62,12 @@ const Actividad_base =  ({staticContext,...props}) => {
 
             <IRow w={85} align='center' py={1.5} id="draggingArea">
                 <ICol className='buttons' w={20}>
-                    <DraggableItemb w={10} audio='./media/audio.mp3' name='Chemistry' draggingArea='#draggingArea' target="#area4"  activeareas={['#area1', '#area2', '#area3', '#area4', '#area5', '#area6']}  send={(result, index) => feedback(result)} index={0}/>
-                    <DraggableItemb w={10} audio='./media/audio.mp3' name='Biology'  draggingArea='#draggingArea' target="#area6" activeareas={['#area1', '#area2', '#area3', '#area4', '#area5', '#area6']}  send={(result) => feedback(result)} index={1}/>
-                    <DraggableItemb w={10} audio='./media/audio.mp3' name='Physics'  draggingArea='#draggingArea' target="#area2" activeareas={['#area1', '#area2', '#area3', '#area4', '#area5', '#area6']}  send={(result) => feedback(result)} index={2}/>
-                    <DraggableItemb w={10} audio='./media/audio.mp3' name='Math'   draggingArea='#draggingArea' target="#area5" activeareas={['#area1', '#area2', '#area3', '#area4', '#area5', '#area6']}  send={(result) => feedback(result)} index={3}/>
-                    <DraggableItemb w={10} audio='./media/audio.mp3' name='Languages'  draggingArea='#draggingArea' target="#area1" activeareas={['#area1', '#area2', '#area3', '#area4', '#area5', '#area6']}  send={(result) => feedback(result)} index={4}/>
-                    <DraggableItemb w={10} audio='./media/audio.mp3' name='Reading'  draggingArea='#draggingArea' target="#area3" activeareas={['#area1', '#area2', '#area3', '#area4', '#area5', '#area6']}  send={(result) => feedback(result)} index={5}/>
+                    <DraggableItemb w={10} audio='./media/chemistry.mp3' name='Chemistry' draggingArea='#draggingArea' target="#area4"  activeareas={['#area1', '#area2', '#area3', '#area4', '#area5', '#area6']}  send={(result, index) => feedback(result)} index={0}/>
+                    <DraggableItemb w={10} audio='./media/biology.mp3' name='Biology'  draggingArea='#draggingArea' target="#area6" activeareas={['#area1', '#area2', '#area3', '#area4', '#area5', '#area6']}  send={(result) => feedback(result)} index={1}/>
+                    <DraggableItemb w={10} audio='./media/physics.mp3' name='Physics'  draggingArea='#draggingArea' target="#area2" activeareas={['#area1', '#area2', '#area3', '#area4', '#area5', '#area6']}  send={(result) => feedback(result)} index={2}/>
+                    <DraggableItemb w={10} audio='./media/math.mp3' name='Math'   draggingArea='#draggingArea' target="#area5" activeareas={['#area1', '#area2', '#area3', '#area4', '#area5', '#area6']}  send={(result) => feedback(result)} index={3}/>
+                    <DraggableItemb w={10} audio='./media/languages.mp3' name='Languages'  draggingArea='#draggingArea' target="#area1" activeareas={['#area1', '#area2', '#area3', '#area4', '#area5', '#area6']}  send={(result) => feedback(result)} index={4}/>
+                    <DraggableItemb w={10} audio='./media/reading.mp3' name='Reading'  draggingArea='#draggingArea' target="#area3" activeareas={['#area1', '#area2', '#area3', '#area4', '#area5', '#area6']}  send={(result) => feedback(result)} index={5}/>
                 </ICol>
                 <ICol className='areas' w={70} pl={2}>
 

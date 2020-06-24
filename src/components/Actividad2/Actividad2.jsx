@@ -45,7 +45,7 @@ const Actividad2_base = ({staticContext,...props}) => {
         <Container bgImage='./src/bg_actividad1.png' {...props}>
 
             <UiButtonsContainer>
-                <ButtonUi icon='ilx-ayuda' tooltip='listen carefully to the conversation and then answer if the following sentences are true or false' />
+                <ButtonUi icon='ilx-ayuda' tooltip='Listen carefully to the conversation and select true or false, according to what you hear in the audio. ' />
                 <ButtonUi icon='ilx-volver' tooltip='Start Again' onClick={() => window.location.reload()} />
             </UiButtonsContainer>
 
@@ -60,7 +60,7 @@ const Actividad2_base = ({staticContext,...props}) => {
             </IRow>
             
             <IRow align='center' justify='center' w={80} pt={1}>
-                <ButtonAudio src='media/audio.mp3'></ButtonAudio>
+                <ButtonAudio src='media/welcome.mp3'></ButtonAudio>
             </IRow>
 
             <IRow w={85} align='center' py='2'>

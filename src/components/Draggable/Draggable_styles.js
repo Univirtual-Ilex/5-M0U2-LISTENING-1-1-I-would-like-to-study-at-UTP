@@ -11,6 +11,9 @@ const styles = css`
     cursor: move;
     font-size:0.75em;
     margin:0.5em 0.5em;
+    .name{
+        display:inline-block;
+    }
 `
 
 

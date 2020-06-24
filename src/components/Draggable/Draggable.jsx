@@ -84,7 +84,7 @@ const Draggable_base = forwardRef(({ draggingArea, audio, name, target, send, in
     return (
         <div {...props} ref={itemDraggable}>
             <BocinaButton audio={ audio } type />
-            <span>{ name }</span>
+            <span className="name">{ name }</span>
         </div>
     )
 })
